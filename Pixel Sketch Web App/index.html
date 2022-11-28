@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+
+    
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/colors.css">
+    <link rel="stylesheet" href="./css/Bootstrap/bootstrap.css" >
+    <!-- 
+      Bootstrap
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=VT323&display=swap" rel="stylesheet">
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+     -->
+
+
+     <script src="./js/jquery-3.2.1.slim.min.js"></script>
+     <script src="./js/popper.min.js"></script>
+
+    <!-- Fonts VT323 -->
+    
+
+    <title>Document</title>
+</head>
+<body draggable="false">
+  
+  <div class="pl-1 navigation-toolbar d-flex" >
+    <div>
+      <img src="./photos/image 2.png" alt="">
+      <span class="navigation-toolbar-main-title">Pixel Sketch</span>
+    </div>
+    
+    <div class="dropdown my-auto">
+      <button class="navigation-bar-links" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        File
+      </button>
+      <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#" >New</a>
+        <a class="dropdown-item" href="javascript:ClearAllCanvas()">Clear</a>
+        
+        <a class="dropdown-item" href="javascript:ResizePixelSize()">Resize Pixel</a>
+        <a class="dropdown-item" href="javascript:DownloadCanvas()">Download</a>
+        
+      </div>
+    </div>
+  </div>
+<a href="" id="download" ></a>
+  
+  
+  <div class="background d-flex justify-content-between " >
+    <div class="tools align-left p-2">
+      <div class="column">
+        
+        
+        <div class="text-center">
+          <p class="tools-title text-center">Tools</p>
+        <span id="hover" onmousemove="hover(this)" >
+          <button onclick="undo()"  class="tools-button column align-text-center mx-auto" id="hoverButton" class="undoButton"><img src="./photos/chevron-circle-left-Bold.png" class="img-fluid tools-button-image"></button>
+          <span class="undoButtonSpan">Undo</span>
+        </span>
+  
+        <span id="hover" onmousemove="hover(this)">
+          <button onclick="redo()" class="tools-button column align-text-center" id="redoButton"><img src="./photos/chevron-circle-right-Bold.png" class="img-fluid"></button><br>
+          <span  class="redoButtonSpan">Redo</span>
+        </span>
+
+        <span id="hover" onmousemove="hover(this)" >
+          <button onclick="activatePen(this.value)" value="pen" class="tools-button column align-text-center button-function" id="penButton" ><img src="./photos/office-material.png" class="img-fluid"> </button>
+          <span  class="penButtonSpan">Pen (P)</span>
+        </span>
+
+        <span id="hover" onmousemove="hover(this)" >
+          <button onclick="activatePen(this.value)" value="eraser" class="tools-button column align-text-center button-function" id="eraserButton"><img src="./photos/eraser.png" class="img-fluid"></button>
+          <span  class="eraserButtonSpan">Eraser (E)</span>
+        </span>
+
+        <span id="hover" onmousemove="hover(this)" >
+          <button onclick="ClearAllCanvas()" class="tools-button column align-text-center button-function" id="clearAllButton"><img src="./photos/delete.png" class="img-fluid"></button>
+          <span class="clearButtonSpan">Clear All(E)</span>
+        </span>
+
+        <hr>
+
+        <span id="hover" onmousemove="hover(this)" >
+          <button onclick="activatePen(this.value)" value="rectangle" class="tools-button column align-text-center button-function" id="clearAllButton"><img src="./photos/rectangle.png" class="img-fluid"></button>
+          <span  class="clearButtonSpan">Rectangle</span>
+        </span>
+
+        <span id="hover" onmousemove="hover(this)" >
+          <button onclick="activatePen(this.value)" value="circle" class="tools-button column align-text-center button-function" id="clearAllButton"><img src="./photos/circle.png" class="img-fluid"></button>
+          <span class="clearButtonSpan">Circle</span>
+        </span>
+<br>
+        <span id="hover" onmousemove="hover(this)" >
+          <button onclick="activatePen(this.value)" value="move" class="tools-button column align-text-center button-function"  id="clearAllButton"><img src="./photos/move.png" class="img-fluid"></button>
+          <span class="clearButtonSpan">Move</span>
+        </span>
+        <span id="hover" onmousemove="hover(this)" >
+          <button onclick="activatePen(this.value)" value="line" class="tools-button column align-text-center button-function" id="clearAllButton"><img src="./photos/divide-mathematical-sign (2).png" class="img-fluid"></button>
+          <span class="clearButtonSpan">Line</span>
+        </span>
+      </div>
+<hr>
+<!-- <a id="download" download="image.png"><button type="button" onClick="getData()">Download</button></a> -->
+<!-- Color Palettes-->
+      <div class="palette-tools pb-1">
+        <div class="d-flex justify-content-end" >
+          <select name="color-palette" id="color-palette" class="color-palette">
+            <option value="Default" >Default</option>
+            <option value="Simple" >Simple</option>
+            <option value="Common" >Common</option>
+            <option value="Skin Tones" >Skin Tones</option>
+          </select>
+          <button class="color-palette" >Delete</button>
+          <button class="color-palette" >New</button>
+        </div>
+      </div>
+      
+
+
+      
+      <div class="tools-colors col  scroll scroll--simple" id="toolsColors">
+      </div>
+
+
+      </div>
+
+      <hr>
+
+      <!-- Here you can is the color picker for Pen -->
+      <div class="change-color-div">
+        <input type="color" class="primary-color" id="primary-color" onchange="changePenColorType(this)" onclick="changePenColorType(this)">
+        <input type="color" class="secondary-color" onchange="changePenColorType(this)" onclick="changePenColorType(this)" >
+      </div>
+      
+    </div>
+    
+    
+    <div class="notification " id="notification">
+      <div> Canvas Cleared </div>
+    </div>
+    
+
+    
+
+
+    <div class="main-canvas mt-5 d-flex " oncontextmenu="return false" >
+    
+      <canvas id="canvasTiles" ></canvas>
+      <canvas id="canvasMouseHover" ></canvas>
+      <canvas id="canvas" >
+      </canvas>
+      
+    </div>
+    
+
+    <div class="navigation-tab float-right d-flex ">
+      <div class="p-5 column resize-function">
+        <p class="tools-title text-center">Pixel: <span id="pixelValue"></span></p>
+        <input id="pixelSizeSlider" type="range" min="2" max="100" >
+      </div>
+    </div>
+    
+    
+  </div>
+  
+
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/class.js"></script>
+    <script src="./js/canvas.js"></script>
+    <script src="./js/event.js"></script>
+    <script src="./js/loader.js"></script>
+
+    
+    <script src="./js/Bootstrap/bootstrap.js"></script>
+    <script src="./js/ui.js"></script>
+    <!--Bootstrap-->
+    
+</body>
+</html>

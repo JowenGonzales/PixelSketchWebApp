@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+
+    
+  </style>
+
+</head>
+<body>
+    <script>
+        var height = 100;
+var width = 200;
+var horizontal_grids = 8;
+var vertical_grids = 4;
+
+function bounding_grid_1d(length, grids, x) {
+  var divisions = [];
+  var grid_width = length / grids;
+  
+  for ( i = 0; i <= grids; i++ ) {
+    if (x || x == 0) {
+      if (i*grid_width > x) {
+        divisions.push((i-1)*grid_width);
+        divisions.push(i*grid_width);
+        break;
+      }
+      else if (i*grid_width == x) {
+        divisions.push(i*grid_width);
+        break;
+      }
+    }
+    else {
+      divisions.push(i*grid_width);
+    }
+  }
+  
+  return divisions;
+}
+
+console.log("Get all the x and y grid line locations");
+console.log(bounding_grid_1d(width, horizontal_grids));
+console.log(bounding_grid_1d(height, vertical_grids));
+
+
+console.log("Get the x and y grid line locations that surround the coordinates (60,30)");
+console.log(bounding_grid_1d(width, horizontal_grids, 60));
+console.log(bounding_grid_1d(height, vertical_grids, 30));
+    </script>
+</body>
+</html>

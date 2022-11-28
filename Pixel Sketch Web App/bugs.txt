@@ -1,0 +1,29 @@
+* Fix where clear canvas cannot be undo
+* Fix the undo and redo, undoing and redoing even though there are no changes made and adding history counts, clicking the button on how many times your previously clicked it
+* Enable undo on move
+* Create a feature wherein you can draw a line
+* Create a feature wherein you can draw a rectangle
+* Feature wherein you can resize the canvas
+* Fixed Undefined Values on the Bline Algorithm
+* Fix "Pen" Skipping Coordinates leading to inconsistency of Lines
+* Fix Change Color Palletes
+* Adds Feature to Draw Circles
+* Add Feature that you can undo or redo when the canvas where moved
+* Fix ClearAll stacking and multiplying in the canvas
+* Fix Problems with undo and redo when moving (I Forgot to push the redo on the Pos X HEHE)
+* Cleans my Code on the App and i think it is ready for version 2
+* Adds 0.9 Opacity to the File Menu which i think is a great design
+* Add Pixel Slider Functionality, even though drawing canvas tiles is a bit buggy
+
+
+Plans for Version 2
+Showcasing of Pixels Arts
+    
+More Shapes
+    Oval
+    Curve Lines
+Features
+    Layers
+    Creation and Deletion of Pallettes
+    Cookie Storage 
+

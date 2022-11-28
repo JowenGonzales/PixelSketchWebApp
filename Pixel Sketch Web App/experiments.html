@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body draggable="false"> 
+    <canvas id="canvas" width="600" height="600" style="border: 1px solid black">
+        
+    </canvas>
+    <button onclick="javascript:Zoom()">Zoom</button>
+    <script>
+
+        var canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+
+
+        function drawPath() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillRect(10, 10, 10, 10);
+        }
+        
+        drawPath();
+
+
+        var scale = ctx.getTransform();
+        function Zoom(delta , x , y) {
+            
+            drawPath();
+            if (delta < 0) {
+                
+                ctx.translate(-x, -y);
+                ctx.scale(0.9, 0.9);
+
+                ctx.translate(x, y);
+            } 
+            if (delta > 0) {
+                
+                ctx.translate(-x, -y);
+                ctx.scale(1.1, 1.1);
+                ctx.translate(x, y);
+            }
+
+
+        }
+
+
+        var handleScroll = function(e) {
+
+            var x = e.pageX - this.offsetLeft;
+	        var y = e.pageY - this.offsetTop;
+            
+            var delta = e.wheelDelta ? e.wheelDelta/40 : e.detail ? -e.detail / 3 : 0;
+            
+            Zoom(delta, x, y);
+            if (delta) {
+                return e.preventDefault() && false;
+            }
+        }
+        canvas.addEventListener("DOMMouseScroll", handleScroll, false);
+        canvas.addEventListener("mousewheel", handleScroll, false);
+
+
+    </script>
+</body>
+</html>
